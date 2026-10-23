@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-white/5; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-surface-1/80 backdrop-blur-xl border border-white/[0.06];
+  }
+  .glass-2 {
+    @apply bg-surface-2/90 backdrop-blur-xl border border-white/[0.08];
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-500
+           text-white text-sm font-medium rounded-xl transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-brand-500/50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-2 text-zinc-400 hover:text-white
+           hover:bg-white/[0.06] text-sm rounded-lg transition-all duration-150
+           focus:outline-none focus:ring-2 focus:ring-white/10;
+  }
+  .input-base {
+    @apply w-full bg-surface-3 border border-white/[0.08] rounded-xl px-4 py-3
+           text-sm text-white placeholder-zinc-500
+           focus:outline-none focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20
+           transition-all duration-150;
+  }
+  .card {
+    @apply bg-surface-1 border border-white/[0.06] rounded-2xl;
+  }
+  .tag {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium;
+  }
+  .shimmer {
+    background: linear-gradient(90deg, #1c1c25 25%, #22222e 50%, #1c1c25 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+  }
+  .glow-brand {
+    box-shadow: 0 0 30px rgba(99,102,241,0.15);
+  }
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease forwards;
+}
+
+.sql-viewer pre {
+  background: transparent !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+.data-table { width: 100%; font-size: 14px; border-collapse: collapse; }
+.data-table th { padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #9ca3af; background: #13131a; border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 0; }
+.data-table td { padding: 10px 16px; color: #d1d1db; border-bottom: 1px solid rgba(255,255,255,0.04); white-space: nowrap; max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.recharts-text { fill: #9ca3af !important; }
+.recharts-cartesian-axis-line,
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line { stroke: rgba(255,255,255,0.06) !important; }
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #1c1c25 !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+}
